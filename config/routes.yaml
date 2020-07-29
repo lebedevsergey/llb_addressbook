@@ -1,0 +1,10 @@
+homepage:
+    path: /
+    controller: App\Controller\AddresseeController::index
+
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        template: addressee/index.html.twig
+        _locale: '%locale%'
+        page: 1

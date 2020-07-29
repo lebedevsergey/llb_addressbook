@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'entry_show' %}
+
+{% block main %}
+    <h2>{{ item.firstname }}&nbsp{{ item.lastname }}</h2>
+
+    <div class="row">
+        <div class="col-md-2">
+            {% if item.pictureurl %}
+                <img class="img-circle img-thumbnail" src="{{ item.pictureurl }}" alt="addressee picture">
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="post-metadata">
+        <span class="metadata"><i class="fa fa-phone"></i> {{ item.phone }}</span>
+        <span class="metadata"><i class="fa fa-envelope-o"></i> {{ item.email }}</span>
+        <span class="metadata"><i class="fa fa-calendar"></i> {{ item.birthday.format("D-M-Y") }}</span>
+    </div>
+
+    <div class="address-group">
+        <div class="address">
+            <span>{{ item.house }}</span>
+            <span>{{ item.street }}</span>
+        </div>
+        <div class="address"> {{ item.city }}</div>
+        <div class="address"> {{ item.country }}</div>
+        <div class="address"> {{ item.zip }}</div>
+    </div>
+
+
+    <div class="item-actions">
+        <a href="{{ path('entry_edit', {id: item.id}) }}" class="btn btn-sm btn-primary">
+            <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit'|trans }}
+        </a>
+        {{ include('/addressee/item/_delete_form.html.twig', {item: item}, with_context = false) }}
+    </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ encore_entry_script_tags('admin') }}
+    {% endblock %}
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'edit_entry' %}
+
+{% block main %}
+    <h1>{{ item.firstname }}&nbsp;{{ item.lastname }}</h1>
+
+    <div class="row">
+        <div class="col-md-2">
+            {% if item.pictureurl %}
+                <img class="img-circle img-thumbnail" src="{{ item.pictureurl }}" alt="addressee picture">
+            {% endif %}
+        </div>
+    </div>
+
+    {{ include('/addressee/item/_form.html.twig', {
+        form: form,
+        button_label: 'action.save'|trans,
+    }, with_context = false) }}
+{% endblock %}

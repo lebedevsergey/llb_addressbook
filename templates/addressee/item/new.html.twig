@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'new_entry' %}
+
+{% block main %}
+    <h1>{{ 'title.new_entry'|trans }}</h1>
+    {{ include('/addressee/item/_form.html.twig', {
+        form: form,
+        button_label: 'label.create_entry'|trans,
+    }, with_context = false) }}
+
+{% endblock %}
