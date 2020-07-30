@@ -35,7 +35,7 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", nullable=false, unique=true)
      * @Assert\NotBlank
      */
     private $name;

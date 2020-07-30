@@ -26,9 +26,9 @@ class Addressee
     /**
      * @var int
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -111,14 +111,14 @@ class Addressee
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(type="datetime")
+     * @Assert\NotBlank
      */
     private $birthday;
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * @Assert\Length(max=255)
      */
     private $pictureurl;
